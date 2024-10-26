@@ -2,7 +2,7 @@
 
 version       = "0.1.0"
 author        = "metagn"
-description   = ""
+description   = "attempt to implement 2d floors in 3d"
 license       = "MIT"
 srcDir        = "src"
 
@@ -18,7 +18,7 @@ when (NimMajor, NimMinor) >= (1, 4):
 
 task docs, "build docs for all modules":
   when declared(buildDocs):
-    buildDocs(gitUrl = "https://github.com/metagn/applicates")
+    buildDocs(gitUrl = "https://github.com/metagn/linoleum")
   else:
     echo "docs task not implemented, need nimbleutils"
 
