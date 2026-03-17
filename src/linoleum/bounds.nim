@@ -23,6 +23,17 @@ proc boundingBox*[T](line: Line[T]): BoundingBox[T] =
 proc contains*[T](rect: BoundingBox[T], point: Point[T]): bool =
   point.x in rect.minX..rect.maxX and point.y in rect.minY..rect.maxY
 
+proc intersects*[T](a, b: BoundingBox[T]): bool =
+  result =
+    point(a.minX, a.minY) in b or
+    point(a.minX, a.maxY) in b or
+    point(a.maxX, a.minY) in b or
+    point(a.maxX, a.maxY) in b or
+    point(b.minX, b.minY) in a or
+    point(b.minX, b.maxY) in a or
+    point(b.maxX, b.minY) in a or
+    point(b.maxX, b.maxY) in a
+
 proc containsColinear*[T](line: Line[T], point: Point[T]): bool {.inline.} =
   point in line.boundingBox
 
